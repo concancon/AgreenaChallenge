@@ -11,6 +11,12 @@ export class User {
   @Column()
   public hashedPassword: string;
 
+  @Column()
+  public address: string;
+
+  @Column("simple-json")
+  public coordinates: {lat: number, lng: number};
+
   @CreateDateColumn()
   public createdAt: Date;
 
