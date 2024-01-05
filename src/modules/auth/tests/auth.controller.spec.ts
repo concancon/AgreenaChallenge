@@ -45,6 +45,7 @@ describe("AuthController", () => {
 
       const res = await agent.post("/api/auth/login").send(loginDto);
       const { token } = res.body as AccessToken;
+    
 
       expect(res.statusCode).toBe(201);
       expect(token).toBeDefined();

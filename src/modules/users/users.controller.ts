@@ -18,4 +18,12 @@ export class UsersController {
       next(error);
     }
   }
+  public  addAddress(req: Request, res: Response, next: NextFunction) {
+    try {
+      this.usersService.addAddress(req.body as string); // now we have the user on the request object and can use this to update entry in db
+      res.status(201).send("success");
+    } catch (error) {
+      next(error);
+    }
+  }
 }

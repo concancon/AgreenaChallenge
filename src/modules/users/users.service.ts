@@ -27,6 +27,11 @@ export class UsersService {
     return this.usersRepository.save(newUser);
   }
 
+  public addAddress(address: string): string{
+    
+    return address
+  }
+
   public async findOneBy(param: FindOptionsWhere<User>): Promise<User | null> {
     return this.usersRepository.findOneBy({ ...param });
   }
