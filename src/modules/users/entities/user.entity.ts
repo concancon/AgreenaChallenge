@@ -11,10 +11,10 @@ export class User {
   @Column()
   public hashedPassword: string;
 
-  @Column()
+  @Column({nullable: true})
   public address: string;
 
-  @Column("simple-json")
+  @Column("simple-json", {nullable: true})
   public coordinates: {lat: number, lng: number};
 
   @CreateDateColumn()
