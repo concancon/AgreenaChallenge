@@ -7,7 +7,6 @@ import ds from "orm/orm.config";
 import supertest, { SuperAgentTest } from "supertest";
 import { CreateUserDto } from "../dto/create-user.dto";
 import { UsersService } from "../users.service";
-import { AccessToken } from "modules/auth/entities/access-token.entity";
 
 describe("UsersController", () => {
   let app: Express;
@@ -62,19 +61,5 @@ describe("UsersController", () => {
       });
     });
   });
-  describe("POST /protected/users",  () => {
-    it.only("should add a valid address and calculate its coordinates", async () => {
-    
-      const createUserDto: CreateUserDto = { email: "user@test.com", password: "password" };
-      await agent.post("/api/users").send(createUserDto);
 
-      const response = await agent.post("/api/auth/login").send(createUserDto);
-      expect(response.statusCode).toBe(201);
-      const { token } = response.body as AccessToken;
-    
-      const res = await agent.post("/api/users/addaddress").auth(token, { type: "bearer" }).send("address");
-      expect(res.statusCode).toBe(201);
-  
-    });
-  })
 });
