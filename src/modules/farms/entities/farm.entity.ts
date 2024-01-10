@@ -15,10 +15,10 @@ export class Farm {
   @Column("simple-json", {nullable: true})
   public coordinates: {lat: number, lng: number};
 
-  @Column()
+  @Column("decimal", { precision: 6, scale: 2 })
   public size: number;
 
-  @Column()
+  @Column("decimal", { precision: 6, scale: 2 })
   public yield: number;
 
   @ManyToOne(() => User, (user) => user.farms)
